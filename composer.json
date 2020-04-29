@@ -1,0 +1,43 @@
+{
+  "name": "apility/laravel-mix-components",
+  "description": "apility/laravel-mix-components",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Cathrine Vaage",
+      "email": "cathrine.vaage@gmail.com"
+    }
+  ],
+  "keywords": [
+    "apility",
+    "laravel-mix"
+  ],
+  "require": {
+    "illuminate/view": "^7.0",
+    "illuminate/support": "^7.0"
+  },
+  "require-dev": {
+    "laravel/framework": "^7.0"
+  },
+  "config": {
+    "platform": {
+      "php": "7.3"
+    },
+    "sort-packages": true
+  },
+  "autoload": {
+    "psr-4": {
+      "Apility\\LaravelMixComponents\\": "src/"
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Apility\\LaravelMixComponents\\Providers\\LaravelMixComponentsServiceProvider"
+      ]
+    }
+  }
+}
