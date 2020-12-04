@@ -8,10 +8,10 @@ class MixBody extends MixBase {
   /**
    * Create a new component instance.
    *
-   * @return void
+   * @param string $manifestDirectory
    */
-  public function __construct () {
-    parent::__construct();
+  public function __construct ($manifestDirectory = '') {
+    parent::__construct($manifestDirectory);
 
     $this->jsFiles = $this->files->get('js');
   }

@@ -3,7 +3,6 @@
 
 namespace Apility\LaravelMixComponents\View\Components;
 
-
 use Illuminate\Support\Str;
 use Illuminate\View\Component;
 

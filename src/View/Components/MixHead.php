@@ -2,9 +2,6 @@
 
 namespace Apility\LaravelMixComponents\View\Components;
 
-use Illuminate\View\Component;
-use Illuminate\View\View;
-
 class MixHead extends MixBase {
   public $cssFiles;
   public $jsFiles;
@@ -12,10 +9,10 @@ class MixHead extends MixBase {
   /**
    * Create a new component instance.
    *
-   * @return void
+   * @param string $manifestDirectory
    */
-  public function __construct () {
-    parent::__construct();
+  public function __construct ($manifestDirectory = '') {
+    parent::__construct($manifestDirectory);
 
     $this->cssFiles = $this->isHot ? collect() : $this->files->get('css');
     $this->jsFiles = $this->files->get('js');
