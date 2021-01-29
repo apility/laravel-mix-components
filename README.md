@@ -1,5 +1,5 @@
 # Laravel Mix Components
-An easier way of including laravel mix in your project.
+An easier way of including laravel mix 6 in your project.
 
 Laravel Mix Components provides components for easily connecting your laravel mix setup to your html.  
 Whether you run `build`, `watch`, or `hot`, this will read the manifest and insert the right `<script>` and `<link>`

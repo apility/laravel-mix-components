@@ -15,8 +15,6 @@ abstract class MixBase extends Component {
       $manifestDirectory = "/{$manifestDirectory}";
     }
 
-    $this->isHot = file_exists(public_path($manifestDirectory . '/hot'));
-
     $manifestPath = public_path($manifestDirectory . '/mix-manifest.json');
 
     $this->files = collect(json_decode(file_get_contents($manifestPath), true))

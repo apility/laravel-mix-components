@@ -14,7 +14,7 @@ class MixHead extends MixBase {
   public function __construct ($manifestDirectory = '') {
     parent::__construct($manifestDirectory);
 
-    $this->cssFiles = $this->isHot ? collect() : $this->files->get('css');
+    $this->cssFiles = $this->files->get('css');
     $this->jsFiles = $this->files->get('js');
   }
 
