@@ -2,7 +2,11 @@
 
 namespace Apility\LaravelMixComponents\View\Components;
 
-class MixBody extends MixBase {
+use Illuminate\Support\Collection;
+
+class MixBody extends MixBase
+{
+  /** @var Collection */
   public $jsFiles;
 
   /**
@@ -10,13 +14,20 @@ class MixBody extends MixBase {
    *
    * @param string $manifestDirectory
    */
-  public function __construct ($manifestDirectory = '') {
-    parent::__construct($manifestDirectory);
+  public function __construct($manifestDirectory = '', $integrity = null)
+  {
+    parent::__construct($manifestDirectory, $integrity);
 
-    $this->jsFiles = $this->files->get('js');
+    $this->jsFiles = $this->files->get('js', collect());
   }
 
-  public function render () {
+  public function shouldRender()
+  {
+    return $this->jsFiles->count() > 0;
+  }
+
+  public function render()
+  {
     return view('almc::components.mix-body');
   }
 }

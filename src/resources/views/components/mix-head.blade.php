@@ -3,6 +3,7 @@
     rel="preload"
     as="style"
     href="{{ asset(mix($cssFile)) }}"
+    integrity="{{ $integrityKey($cssFile) }}"
   >
 @endforeach
 
@@ -11,6 +12,7 @@
     rel="preload"
     as="script"
     href="{{ asset(mix($jsFile)) }}"
+    integrity="{{ $integrityKey($jsFile) }}"
   >
 @endforeach
 
@@ -19,5 +21,6 @@
     rel="stylesheet"
     type="text/css"
     href="{{ asset(mix($cssFile)) }}"
+    integrity="{{ $integrityKey($cssFile) }}"
   >
 @endforeach

@@ -1,3 +1,6 @@
 @foreach ($jsFiles as $jsFile)
-  <script src="{{ asset(mix($jsFile)) }}"></script>
+  <script 
+    src="{{ asset(mix($jsFile)) }}"
+    integrity="{{ $integrityKey($jsFile) }}"
+  ></script>
 @endforeach

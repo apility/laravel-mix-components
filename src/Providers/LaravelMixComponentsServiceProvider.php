@@ -9,8 +9,10 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\View;
 
-class LaravelMixComponentsServiceProvider extends ServiceProvider {
-  public function register () {
+class LaravelMixComponentsServiceProvider extends ServiceProvider
+{
+  public function register()
+  {
     View::addNamespace('almc', __dir__ . '/../resources/views');
 
     Blade::component(MixHead::class);
