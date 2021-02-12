@@ -3,8 +3,12 @@
     rel="preload"
     as="style"
     href="{{ asset(mix($cssFile)) }}"
+    @if($integrity->count())
     integrity="{{ $integrityKey($cssFile) }}"
+    @endif
+    @if($crossorigin)
     crossorigin="{{ $crossorigin }}"
+    @endif
   >
 @endforeach
 
@@ -13,8 +17,12 @@
     rel="preload"
     as="script"
     href="{{ asset(mix($jsFile)) }}"
+    @if($integrity->count())
     integrity="{{ $integrityKey($jsFile) }}"
+    @endif
+    @if($crossorigin)
     crossorigin="{{ $crossorigin }}"
+    @endif
   >
 @endforeach
 
@@ -23,7 +31,11 @@
     rel="stylesheet"
     type="text/css"
     href="{{ asset(mix($cssFile)) }}"
+    @if($integrity->count())
     integrity="{{ $integrityKey($cssFile) }}"
+    @endif
+    @if($crossorigin)
     crossorigin="{{ $crossorigin }}"
+    @endif
   >
 @endforeach
