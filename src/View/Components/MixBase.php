@@ -31,16 +31,12 @@ abstract class MixBase extends Component
 
     $this->crossorigin = $crossorigin;
 
-    $integrity = $integrity ? collect(explode(',', $integrity))
+    $this->integrity = $integrity ? collect(explode(',', $integrity))
       ->map(function ($algorithm) {
         return $algorithm ? trim($algorithm) : $algorithm;
       })->filter(function ($algorithm) {
         return in_array($algorithm, hash_algos());
       }) : collect();
-
-    if ($integrity->count()) {
-      $this->integrity = $integrity;
-    }
 
     $manifestPath = public_path($manifestDirectory . '/mix-manifest.json');
 
