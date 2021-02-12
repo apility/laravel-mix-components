@@ -15,11 +15,18 @@ abstract class MixBase extends Component
   /** @var Collection */
   protected $files;
 
-  /** @var string|null */
+  /** @var Collection */
   public $integrity;
 
   /** @var string|null */
   public $crossorigin;
+
+  /**
+   * The cache of integrity hashes.
+   *
+   * @var array
+   */
+  protected static $integrityCache = [];
 
   public function __construct($manifestDirectory = '', $integrity = null, $crossorigin = null)
   {
@@ -56,6 +63,10 @@ abstract class MixBase extends Component
 
   public function integrityKey($file)
   {
+    if (isset(static::$integrityCache[$file])) {
+      return static::$integrityCache[$file];
+    }
+
     if ($this->integrity->count()) {
       $files = $this->files->flatten();
       if ($file = $files->first(function ($path) use ($file) {
@@ -66,7 +77,7 @@ abstract class MixBase extends Component
           $hashes = $this->integrity->map(function ($algorithm) use ($content) {
             return $algorithm . '-' . base64_encode(hash($algorithm, $content, true));
           });
-          return $hashes->join(' ');
+          return static::$integrityCache[$file] = $hashes->join(' ');
         }
       }
     }
