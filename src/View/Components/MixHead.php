@@ -19,9 +19,9 @@ class MixHead extends MixBase
    *
    * @param string $manifestDirectory
    */
-  public function __construct($manifestDirectory = '', $integrity = null, $preload = false)
+  public function __construct($manifestDirectory = '', $integrity = null, $crossorigin = null, $preload = false)
   {
-    parent::__construct($manifestDirectory, $integrity);
+    parent::__construct($manifestDirectory, $integrity, $crossorigin);
 
     $this->preload = $preload;
     $this->cssFiles = $this->isHot ? collect() : $this->files->get('css', collect());

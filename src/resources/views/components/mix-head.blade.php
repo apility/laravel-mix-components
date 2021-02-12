@@ -4,6 +4,7 @@
     as="style"
     href="{{ asset(mix($cssFile)) }}"
     integrity="{{ $integrityKey($cssFile) }}"
+    crossorigin="{{ $crossorigin }}"
   >
 @endforeach
 
@@ -13,6 +14,7 @@
     as="script"
     href="{{ asset(mix($jsFile)) }}"
     integrity="{{ $integrityKey($jsFile) }}"
+    crossorigin="{{ $crossorigin }}"
   >
 @endforeach
 
@@ -22,5 +24,6 @@
     type="text/css"
     href="{{ asset(mix($cssFile)) }}"
     integrity="{{ $integrityKey($cssFile) }}"
+    crossorigin="{{ $crossorigin }}"
   >
 @endforeach

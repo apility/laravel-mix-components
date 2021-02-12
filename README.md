@@ -50,6 +50,15 @@ Must be a valid algorithm supportedd by PHP. Most browsers only supports `sha256
 <x-mix-body integrity="sha256,sha284" />
 ```
 
+#### `crossorigin`
+Sets the crossorigin CORS attribute. Often required by the browser if the asset is located on a different origin. If SRI is enabled, the crossorigin value must be set, otherwise the browser treats it like the integrity hash is invalid.
+
+##### Example
+```html
+<x-mix-head crossorigin="anonymous" />
+<x-mix-body crossorigin="anonymous" />
+```
+
 #### `manifest-directory`
 Laravel Mix will by default output the `hot` and `mix-manifest.json` files in the root of `/public`.  
 Laravel Mix Components can be configured to read the file in another directory.  

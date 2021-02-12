@@ -5,21 +5,31 @@ namespace Apility\LaravelMixComponents\View\Components;
 
 use Illuminate\Support\Str;
 use Illuminate\View\Component;
+use Illuminate\Support\Collection;
 
 abstract class MixBase extends Component
 {
+  /** @var bool */
   protected $isHot;
+
+  /** @var Collection */
   protected $files;
 
+  /** @var string|null */
   public $integrity;
 
-  public function __construct($manifestDirectory = '', $integrity = null)
+  /** @var string|null */
+  public $crossorigin;
+
+  public function __construct($manifestDirectory = '', $integrity = null, $crossorigin = null)
   {
     if ($manifestDirectory && !Str::startsWith($manifestDirectory, '/')) {
       $manifestDirectory = "/{$manifestDirectory}";
     }
 
     $this->isHot = file_exists(public_path($manifestDirectory . '/hot'));
+
+    $this->crossorigin = $crossorigin;
 
     $integrity = $integrity ? collect(explode(',', $integrity))
       ->map(function ($algorithm) {

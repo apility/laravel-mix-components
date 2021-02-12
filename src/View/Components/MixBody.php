@@ -14,9 +14,9 @@ class MixBody extends MixBase
    *
    * @param string $manifestDirectory
    */
-  public function __construct($manifestDirectory = '', $integrity = null)
+  public function __construct($manifestDirectory = '', $integrity = null, $crossorigin = null)
   {
-    parent::__construct($manifestDirectory, $integrity);
+    parent::__construct($manifestDirectory, $integrity, $crossorigin);
 
     $this->jsFiles = $this->files->get('js', collect());
   }
