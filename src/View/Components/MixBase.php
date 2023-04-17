@@ -53,9 +53,7 @@ abstract class MixBase extends Component
       $this->files = collect(json_decode(file_get_contents($manifestPath), true))
         ->keys()
         ->groupBy(function ($key) {
-
-        preg_match('/\.([^\.]+)$/', $key, $matches);
-
+          preg_match('/\.([^\.]+)$/', $key, $matches);
           return $matches[1];
         });
     }
