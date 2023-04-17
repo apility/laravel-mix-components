@@ -54,7 +54,7 @@ abstract class MixBase extends Component
         ->keys()
         ->groupBy(function ($key) {
 
-          preg_match('/\.(\D+)$/', $key, $matches);
+        preg_match('/\.([^\.]+)$/', $key, $matches);
 
           return $matches[1];
         });
