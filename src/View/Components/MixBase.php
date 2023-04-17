@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Apility\LaravelMixComponents\View\Components;
 
 use Illuminate\Support\Str;
