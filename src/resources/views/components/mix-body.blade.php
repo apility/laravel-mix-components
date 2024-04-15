@@ -7,5 +7,11 @@
     @if($crossorigin)
     crossorigin="{{ $crossorigin }}"
     @endif
+    @if($defer)
+    defer
+    @endif
+    @if($async)
+    async
+    @endif
   ></script>
 @endforeach

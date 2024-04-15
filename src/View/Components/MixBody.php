@@ -8,17 +8,21 @@ class MixBody extends MixBase
 {
   /** @var Collection */
   public $jsFiles;
+  public bool $defer;
+  public bool $async;
 
   /**
    * Create a new component instance.
    *
    * @param string $manifestDirectory
    */
-  public function __construct($manifestDirectory = '', $integrity = null, $crossorigin = null)
+  public function __construct($manifestDirectory = '', $integrity = null, $crossorigin = null, $defer = false, $async = false)
   {
     parent::__construct($manifestDirectory, $integrity, $crossorigin);
 
     $this->jsFiles = $this->files->get('js', collect());
+    $this->defer = $defer;
+    $this->async = $async;
   }
 
   public function shouldRender()
